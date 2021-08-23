@@ -1,0 +1,43 @@
+<div class="table-responsive">
+  {{!-- <form method="post" action='/order/deleteorder/'> --}}
+  <form method="post" action='{{post}}'>
+
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th>Order ID: </td>
+          <td>{{data.id}}</td>
+        </tr>
+        <tr>
+          <th>Customer First Name: </td>
+          <td>{{data.fName}}</td>
+        </tr>
+        <tr>
+          <th>Customer Last Name: </td>
+          <td>{{data.lName}}</td>
+        </tr>
+        <tr>
+          <th>Number of Items: </td>
+          <td>{{data.numItems}}</td>
+        </tr>
+        <tr>
+          <th>Total Cost: </td>
+          <td>${{data.totalCost}}</td>
+        </tr>
+        <input type="hidden" name="id" value="{{data.id}}">
+        <input type="hidden" name="cid" value="{{data.cid}}">
+       
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+              <input type="submit" value="OK" class="btn btn-success">
+              <input type="button" value="Cancel" class="btn btn-danger"
+                  class="cancel" onclick="cancelDeleteOrder()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

@@ -1,0 +1,64 @@
+<div>
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			
+			<thead>
+				<tr>	
+					<th>Customer ID</th>
+					<th>Customer Name</th>
+					<th>Active Orders</th>
+				</tr>
+			</thead>
+			
+			
+			<tbody>
+				
+					<tr>
+						<td>{{id}}</td>
+						<td>{{data.fName}} {{data.lName}}</td>
+						
+						
+						{{#if orderData}}
+						<td>
+							{{#each orderData}}
+							{{this.orderNum}}<br>
+							{{/each}}
+						</td>
+
+						<td>
+							{{#each orderData}}
+
+							<a href="/{{this.role}}/editorder/{{this.orderNum}}">Edit</a> |
+							<a href="/{{this.role}}/deleteorder/{{this.orderNum}}">Delete</a><br> 
+							
+							{{/each}}
+
+
+							{{!-- {{#each data.activeOrders}}
+							
+							<a href="/{{role}}/editorder/{{this}}">Edit</a> |
+							<a href="/{{role}}/deleteorder/{{this}}">Delete</a><br> 
+							{{/each}} --}}
+						</td>
+						{{else}}
+						<td><p>No active orders</p></td>
+							
+						{{/if}}
+					</tr>
+				
+			</tbody>
+			<tfooter>
+				<tr><td>
+
+				<a class="btn btn-primary" href="/{{role}}/editcustomer/{{data.id}}">
+				{{editCall}}</a>
+				<a class="btn btn-danger" href="/{{role}}/deletecustomer/{{data.id}}">
+				{{deleteCall}}</a>
+
+				<button class="btn btn-warning" onclick="cancelAddOrder()">Back</button>
+
+				</td></tr>
+			</tfooter>
+		</table>
+	</div>
+</div>

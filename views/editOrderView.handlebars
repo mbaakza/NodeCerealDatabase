@@ -1,0 +1,123 @@
+<Style>
+input {text-transform: uppercase;}
+table.itemstable th, table td {padding:2px 50px 2px 0}
+table.itemstable td {padding-bottom:30px}
+</Style>
+
+<div class="table-responsive">
+  {{!-- <form method="post" action='/order/confirmOrder/'> --}}
+  <form method="post" action='/{{role}}/confirmOrder/'>
+    <table class="editOrder table table-condensed">
+      <tbody>
+        <tr><th>Order #</th><td>{{orderdata.id}}</td></tr>
+        <tr>
+          <th>Customer's Name:</td>
+          <td>{{orderdata.cust_fname}} {{orderdata.cust_lname}}</td>
+        </tr>
+
+        {{#if items}} <!--  -->
+
+        <tr><th>Number Items</td><td>{{orderdata.numItems}}</td></tr>
+          
+          <tr><th>Items Selected</td><td>
+
+            <table class="itemstable">
+              {{#each items}}
+              
+                <tr>
+                  <th>Cereal Name</th>
+                  <th>Cereal Company</th>
+                  <th>Cereal Description</th>
+                  <th>Cereal Price</th>
+                  <th>Cereal Quantity</th>
+                </tr>
+
+                <tr>
+                  <input type="hidden" name="existingIds" value="{{id}}">
+                  <td>{{name}}</td>
+                  <td>{{company}}</td>
+                  <td>{{description}}</td>
+                  <td>${{price}}</td>
+                  <td>{{quantity}}</td>
+
+                </tr>
+              {{/each}}
+            </table>
+
+          </td></tr>
+        
+        <tr><th>Order Total</td><td>${{orderdata.totalCost}}</td></tr> 
+
+        {{else}}
+        <div><h3>{{message}}</h3></div>
+
+        {{/if}} <!--  -->
+
+        <input type="hidden" name="orderid" value="{{orderdata.id}}">
+        <input type="hidden" name="custid" value="{{orderdata.cust_id}}">
+        
+      </tbody>
+      <tfooter>
+      </tfooter>
+    </table>
+
+    {{#if items}}
+    <center><h4>Update quantity of each item:</h4></center><br/>
+
+    {{else}}
+    <center><h4>Select quantity of each item:</h4></center><br/>
+    {{/if}}
+
+    <!--start-->
+              <table class="table table-condensed">
+                {{#if data}}
+                <thead>
+                  <tr>
+                    <th>Cereal Name</th>
+                    <th>Cereal Company</th>
+                    <th>Cereal Description</th>
+                    <th>Cereal Price</th>
+                    <th>Cereal Quantity</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                {{else}}
+                <tr><td colspan="3">No Cereals in stock!</td></tr>
+                {{/if}}
+                <tbody>
+                  {{#each data}}
+                    <tr>
+                      <input type="hidden" name="cerealid" value="{{this.id}}">
+                      <td>{{this.name}}</td>
+                      <td>{{this.company}}</td>
+                      <td>{{this.description}}</td>
+                      <td>${{this.price}}</td>
+                      <td><input type="number" name="amtSelected" value="{{this.orderQty}}" min="0" max="{{this.quantity}}"></td>
+                      <input type="hidden" name="prevAmt" value="{{this.orderQty}}">
+                      <!---->
+                    </tr>
+                    <tr>
+                  {{/each}}
+                </tbody>
+                <tfooter>
+                  <tr><td colspan="7"><center>
+                  <input type="submit" value="Checkout" class="btn btn-success">
+                  
+                  <input type="button" value="Cancel" class="btn btn-danger"
+                  class="cancel" onclick="cancelAddOrder()">
+
+                  </form><br/><br/>
+
+              <form action="/{{role}}/deleteorder/{{orderdata.id}}">
+                  <input class="btn btn-danger" type="submit" value="Delete" />
+              </form>
+
+                  </center></td></tr>
+                </tfooter>
+              </table>
+
+          </td> <!--end-->
+
+
+  
+</div>

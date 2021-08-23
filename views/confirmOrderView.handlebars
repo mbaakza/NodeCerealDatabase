@@ -1,0 +1,70 @@
+ <Style>input {text-transform: uppercase;}
+
+input {text-transform: uppercase;}
+table.itemstable th, table td {padding:2px 50px 2px 0}
+table.itemstable td {padding-bottom:30px}
+</Style>
+ <div class="table-responsive">
+  <!--<form method="post" action="/customer/show/{{orderdata.cust_id}}"></form>-->
+    <table class="confirmOrder table table-condensed">
+      <tbody>
+        <tr><th>Order ID: </td><td>{{orderdata.id}}</td></tr>
+        <tr><th>Customer Name: </td>
+        <td>{{orderdata.cust_fname}} {{orderdata.cust_lname}}</td></tr>
+        <input type="hidden" name="cid" value="{{orderdata.cust_id}}">
+        <tr><th>Number of Items</td><td>{{orderdata.numItems}}</td></tr>
+
+        <tr><th>Items Selected</td><td>
+
+            <table class="itemstable">
+              {{#each orderdata.items}}
+                <tr>
+                  <th>Cereal Name</th>
+                  <th>Cereal Company</th>
+                  <th>Cereal Description</th>
+                  <th>Cereal Price</th>
+                  <th>Cereal Quantity</th>
+                </tr>
+
+                <tr>
+                  <td>{{name}}</td>
+                  <td>{{company}}</td>
+                  <td>{{description}}</td>
+                  <td>${{price}}</td>
+                  <td>{{quantity}}</td>
+                </tr>
+              {{/each}}
+            </table>
+
+          </td></tr>
+
+        <tr><th>Order Total</td><td>${{orderdata.totalCost}}</td></tr> 
+        <input type="hidden" name="orderid" value="{{orderdata.id}}">
+        <input type="hidden" name="custid" value="{{orderdata.cust_id}}">
+              
+       </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+
+         
+           <form action="{{action}}">
+             <input type="button" value="GO BACK & EDIT" 
+              class="btn btn-warning" onclick="goBack('{{orderdata.id}}')">
+
+              <input type="button" value="Exit" 
+              class="btn btn-danger" onclick="goHome()">  
+
+
+              <input type="submit" value="{{button}}" 
+              class="btn btn-success">
+            </form> <br/>
+
+              
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  <!--</form>-->
+</div>

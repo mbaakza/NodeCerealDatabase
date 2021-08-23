@@ -1,0 +1,33 @@
+<Style>input {text-transform: uppercase;}</Style>
+
+<div class="table-responsive">
+  <form method="post" action='/{{role}}/editcustomer/'>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th>First Name: </td>
+          <td><input type="text" name="cfname" required size="40" 
+                  value="{{data.fName}}"></td>
+        </tr>
+        <tr>
+          <th>Last Name: </td>
+          <td><input type="text" name="clname" required size="40" 
+                  value="{{data.lName}}"></td>
+        </tr>
+        <input type="hidden" name="id" value="{{data.id}}">
+
+
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+              <input type="submit" value="Save" class="btn btn-success">
+              <input type="button" value="Cancel" class="btn btn-danger"
+                  class="cancel" onclick="cancelAddCust()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

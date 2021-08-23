@@ -1,0 +1,50 @@
+<Style>input {text-transform: uppercase;}</Style>
+
+<div class="table-responsive">
+  <form method="post" action='/admin/editcereal/'>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th>Cereal Name: </td>
+          <td><input type="text" name="cname" required size="40" 
+                  value="{{data.name}}"></td>
+        </tr>
+        <tr>
+          <th>Cereal Company: </td>
+          <td><input type="text" name="ccomp" required size="40" 
+                  value="{{data.company}}"></td>
+        </tr>
+        <tr>
+          <th>Cereal Description: </td>
+          <td><input type="text" name="cdes" required size="40" 
+                  value="{{data.description}}"></td>
+        </tr>
+        <tr>
+          <th>Price per unit: </td>
+          <td><input type="text" name="cprice" required size="40" 
+                  value="{{data.price}}"></td>
+        </tr>
+        <tr>
+          <th>Quantity in stock: </td>
+          <td><input type="text" name="cquan" required size="40" 
+                  value="{{data.quantity}}"></td>
+        </tr>
+
+
+        <input type="hidden" name="id" value="{{data.id}}">
+
+
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+              <input type="submit" value="Save" class="btn btn-success">
+              <input type="button" value="Cancel" class="btn btn-danger"
+                  class="cancel" onclick="cancelAddCer()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

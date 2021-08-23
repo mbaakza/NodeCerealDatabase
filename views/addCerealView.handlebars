@@ -1,0 +1,48 @@
+ <Style>input {text-transform: uppercase;}</Style>
+ <div class="table-responsive">
+  <form method="post" action="/admin/addcereal">
+    <table class="table table-condensed">
+      <tbody>
+       
+       <tr>
+         <th>Cereal Name: </th>
+         <td><input type="text" name="cname" required 
+              placeholder="Enter cereal name"></td>
+       </tr>
+       <tr>
+         <th>Cereal Company: </th>
+         <td><input type="text" name="ccomp" required 
+              placeholder="Enter company name"></td>
+       </tr>
+       <tr>
+         <th>Cereal Description: </th>
+         <td><input type="text" name="cdes" required 
+              placeholder="Enter cereal description"></td>
+       </tr>
+       <tr>
+         <th>Price: </th>
+         <td><input type="text" name="cprice" required 
+              placeholder="Enter price per unit"></td>
+       </tr>
+       <tr>
+         <th>Quantity: </th>
+         <td><input type="text" name="cquan" required 
+              placeholder="Enter quantity in stock"></td>
+       </tr>
+       
+       
+       </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+           <input type="submit" value="Save" 
+              class="btn btn-success">
+           <input type="button" value="Cancel" 
+              class="btn btn-danger" onclick="cancelAddCer()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

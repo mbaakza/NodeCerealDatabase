@@ -1,0 +1,25 @@
+<div class="table-responsive">
+  <form method="post" action='/{{role}}/deletecustomer/'>
+
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th>Customer Name: </td>
+          <td>{{data.fName}} {{data.lName}}</td>
+        </tr>
+        <input type="hidden" name="id" value="{{data.id}}">
+       
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+              <input type="submit" value="OK" class="btn btn-success">
+              <input type="button" value="Cancel" class="btn btn-danger"
+                  class="cancel" onclick="cancelDeleteCust()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

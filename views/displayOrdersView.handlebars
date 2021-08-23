@@ -1,0 +1,41 @@
+{{> adminNav }}
+<div>
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			{{#if data}}
+			<thead>
+				<tr>
+					<th>Customer ID</th>
+					<th>Customer Name</th>
+					<th>Number of Items</th>
+					<th>Total Cost of this Order</th>
+					<th></th>
+				</tr>
+			</thead>
+			{{else}}
+			<tr><td colspan="3">Currently, No Orders Exist</td></tr>
+			{{/if}}
+			<tbody>
+				{{#each data}}
+					<tr>
+						<td>{{this.cust_id}}</td>
+						<td>{{this.cust_fname}} {{this.cust_lname}}</td>
+						<td>{{this.numItems}}</td>
+						<td>${{this.totalCost}}</td>
+						</td>
+						<td>
+							<a href="/admin/editorder/{{this.id}}">Edit</a> | 
+							<a href="/admin/deleteorder/{{this.id}}">Delete</a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+			<!--<tfooter>
+				<tr><td>
+				<button class="btn btn-primary" 
+						onClick="addOrder();">Add</button>
+				</td></tr>
+			</tfooter>-->
+		</table>
+	</div>
+</div>

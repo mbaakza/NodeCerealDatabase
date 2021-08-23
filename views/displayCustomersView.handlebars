@@ -1,0 +1,37 @@
+{{> adminNav }}
+
+<div class="smallDiv">
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			{{#if data}}
+			<thead>
+				<tr>
+					<th>Customer Name</th>
+					<th style="text-align: center;"># of Active Orders</th>
+				</tr>
+			</thead>
+			{{else}}
+			<tr><td colspan="3">Currently, No Customers Exist.</td></tr>
+			{{/if}}
+			<tbody>
+				{{#each data}}
+					<tr>
+						<td><a href="/admin/displaySingleCustomer/{{this.id}}">{{this.fName}} {{this.lName}}</a>
+						</td>
+
+						{{#if this.activeOrders}}
+
+						<td style="text-align: center;">{{this.size}}</td>
+							
+						{{else}}
+						<td style="text-align: center;">No Active Orders</td>
+
+						{{/if}}	
+
+					</tr>
+				{{/each}}
+			</tbody>
+
+		</table>
+	</div>
+</div>

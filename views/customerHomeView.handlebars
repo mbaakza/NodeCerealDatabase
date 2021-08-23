@@ -1,0 +1,28 @@
+<div style="width:600px; text-align:left; margin:0 auto">
+
+<center>
+
+<h3>Hello, {{fName}} {{lName}}!</h3><br/>
+<p><Strong>What would you like to do next?</Strong></p>
+
+<form method="post" action="/order/addneworder">
+
+<input type="hidden" name="cid" value="{{cid}}">
+
+<input type="submit" value="Add New Order" 
+              class="btn btn-success">
+
+<input type="button" value="My Account" 
+              class="btn btn-primary" onclick="customerPage('{{cid}}')">   
+
+<input type="button" value="Exit" 
+              class="btn btn-danger" onclick="goHome()">
+</form><br/>
+
+<p>Thank you for shopping at The Cereal Shop.<br/><br/>
+<strong>Your Customer ID is:</strong> <br/>{{cid}}</p>
+
+
+</div> 
+
+</center>

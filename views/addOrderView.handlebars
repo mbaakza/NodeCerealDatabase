@@ -1,0 +1,60 @@
+ <Style>input {text-transform: uppercase;}</Style>
+ <div class="table-responsive">
+  <form method="post" action="/order/saveneworder">
+    <table class="confirmOrder table table-condensed">
+      <tbody>
+          
+          <tr><th>Customer ID: </th><td>
+            {{this.cid}}
+            <input type="hidden" name="cid" value="{{this.cid}}">
+          </td></tr>
+
+          <tr><th>Customer Name:</th><td>{{this.fName}} {{this.lName}}</td></tr> 
+
+       </tbody>
+    </table>
+<!--start-->
+              <table class="table table-condensed">
+                <!--{{#if data}}-->
+                <thead>
+                  <tr>
+                   
+                    <th>Cereal Name</th>
+                    <th>Cereal Company</th>
+                    <th>Cereal Description</th>
+                    <th>Cereal Price</th>
+                    <th>Cereal Quantity</th>
+                    <th></th>
+                  </tr>
+                </thead>
+               <!-- {{else}}
+                <tr><td colspan="3">No Cereals in stock!</td></tr>
+                {{/if}}-->
+                <tbody>
+                  {{#each data}}
+                    <tr>
+                      <input type="hidden" name="cerealid" value="{{this.id}}">
+                      <td>{{this.name}}</td>
+                      <td>{{this.company}}</td>
+                      <td>{{this.description}}</td>
+                      <td>{{this.price}}</td>
+                      <td><input type="number" name="amtSelected" value="0" min="0" max="{{this.quantity}}"></td>
+                      <!---->
+                    </tr>
+                    <tr>
+                  {{/each}}
+                </tbody>
+                <tfooter>
+                  <tr><td colspan="7"><center>
+                  <input type="submit" value="Checkout" class="btn btn-success">
+              <input type="button" value="Cancel" class="btn btn-danger"
+                  class="cancel" onclick="cancelAddOrder()">
+                  </center></td></tr>
+                </tfooter>
+              </table>
+
+          </td> <!--end-->
+
+
+  </form>
+</div>

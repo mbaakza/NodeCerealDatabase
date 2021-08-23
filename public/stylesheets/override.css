@@ -1,0 +1,30 @@
+header{text-align: center;}
+header img {height:150px}
+header a {color:#d5d5d5}
+h1{color:darkcyan; margin:0; padding:0}
+h2{font-size:18pt; margin:0; padding:0; color:#e17d51}
+h3 {color:black}
+h4{color:#b155c8}
+div.panel-body {border-radius:5px; background:#fbf0e6; width:1200px; 
+  text-align:left; margin:0 auto; border:1px solid gray}
+input {text-transform: uppercase;}
+
+nav{text-align: center; width:100%; margin: 0 auto; background:gray;
+padding:10px 0; margin-bottom:20px}
+nav a {display:inline; margin-right:20px; color:white; 
+  font-size:14pt}
+nav a:hover {color:#9ecc94; text-decoration: none;}
+
+.smallDiv {width:600px; margin:0 auto; background:#e5e9fd; padding:20px 40px;
+border:1px solid gray}
+
+p.totalCount {font-size:18pt; color:#2170c5}
+
+table.confirmOrder {background:#c8e1c2;}
+table.editOrder {background:#e5c08b;}
+.adminRole, .customerRole {width:560px; height:350px; border:1px solid gray; 
+  float:left; margin:0 auto; text-align:center; vertical-align: middle;}
+.adminRole {margin-right:30px; background:#f4f4f4}
+.customerRole {background:darkcyan; color:white}
+.customerRole h3 {color:white}
+

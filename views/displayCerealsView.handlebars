@@ -1,0 +1,60 @@
+{{> adminNav }}
+
+<center>
+<form method="post" action='/admin/searchCereals'>
+
+<!-- Search box-->
+<input type="search" name="searchBox" size="30" value=""/>&nbsp;
+
+<input type="submit" value="Search" class="btn btn-success">
+
+<input type="reset" onClick="clearSearch()" name="clear" 
+value="Clear" class="btn btn-warning">
+
+</form>
+</center>
+
+<div>
+	<div class="table-responsive">
+		
+	<p class="totalCount"><b>Inventory:</b> {{totalCount}} items in stock</p>
+		<table class="table table-condensed">
+			{{#if data}}
+			<thead>
+				<tr>
+					<th>Cereal Name</th>
+					<th>Cereal Company</th>
+					<th>Cereal Description</th>
+					<th>Cereal Price</th>
+					<th>Cereal Quantity</th>
+					<th></th>
+				</tr>
+			</thead>
+			{{else}}
+			<tr><td colspan="3">No Cereals found ... Add One!</td></tr>
+			{{/if}}
+			<tbody>
+				{{#each data}}
+					<tr>
+						<td>{{this.name}}</td>
+						<td>{{this.company}}</td>
+						<td>{{this.description}}</td>
+						<td>${{this.price}}</td>
+						<td>{{this.quantity}}</td>
+						</td>
+						<td>
+							<a href="/admin/editcereal/{{this.id}}">Edit</a> | 
+							<a href="/admin/deletecereal/{{this.id}}">Delete</a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+			<tfooter>
+				<tr><td>
+				<button class="btn btn-primary" 
+						onClick="addCereal();">Add</button>
+				</td></tr>
+			</tfooter>
+		</table>
+	</div>
+</div>
